@@ -4,6 +4,7 @@ import time
 import random
 import math
 import heapq
+import deque
 
 #initializing pygame
 pygame.init()
@@ -2705,6 +2706,127 @@ running = True
 rubiks.scramble()
 #rubiks.heuristicScore()
 #rubiks.draw()
+def bfs(cube):
+    queue = deque() 
+    visited = set()  
+    queue.append((cube.copy(), [])) 
+    visited.add(cube.getCurrentState())
+
+    possible_moves = ["TC", "TA", "FC", "FA", "BC", "BA", "AC", "AA", "RA", "RC", "LC", "LA"]
+
+    while queue:
+        current_cube, path = queue.popleft()  
+
+        if current_cube.heuristicScore() == 54:  
+            print("Solution found:", path)
+            return path
+
+        for move in possible_moves:
+            new_cube = current_cube.copy()
+            if hasattr(new_cube, f"move{move}"):
+                getattr(new_cube, f"move{move}")()  
+
+                new_state = new_cube.getCurrentState()
+                if new_state not in visited:  
+                    visited.add(new_state)
+                    queue.append((new_cube, path + [move]))
+
+                    # Visualize move
+                    new_cube.draw()
+                    pygame.display.update()
+                    time.sleep(0.5)
+                    print(f"Trying move: {move}")
+
+    return None  
+
+def solve_cube_with_bfs():
+    print("Starting BFS-based solving...")
+
+    solution = bfs(rubiks)
+
+    if solution:
+        print("Solution found:", solution)
+        for move in solution:
+            if hasattr(rubiks, f"move{move}"):
+                getattr(rubiks, f"move{move}")()
+                rubiks.draw()
+                pygame.display.update()
+                time.sleep(1)  
+        print("Cube Solved!")  
+    else:
+        print("No solution found.")
+
+    pygame.quit()  
+   
+def dfs(cube, depth, visited, path):
+        if cube.heuristicScore()==54:
+            return path
+
+        if depth==0:
+            return None
+
+        state_tuple=cube.getCurrentState()
+        if state_tuple in visited:
+            return None
+
+        visited.add(state_tuple)
+
+        possible_moves=["TC", "TA", "FC", "FA", "BC", "BA", "AC", "AA", "RA", "RC", "LC", "LA"]
+
+        for move in possible_moves:
+            if hasattr(cube,f"move{move}"):
+                getattr(cube,f"move{move}")()
+                cube.draw()
+                pygame.display.update()
+                time.sleep(0.5)
+
+                print(f"Trying move: {move}")
+
+                result= dfs(cube,depth -1, visited, path +[move])
+                if result is not None:
+                    return result
+                
+                #backtracking
+
+                reverse_move=move [:-1] + ('A' if move[-1] == "C" else "C")
+                getattr(cube,f"move{reverse_move}")()
+                cube.draw()
+                pygame.display.update()
+                time.sleep(0.5)
+
+        return None                        
+
+def iterative_deepening_search(cube,max_depth=10):
+        for depth in range(1,max_depth +1):
+            print(f"Searching with depth limit:{depth}")
+            visited=set()
+            result= dfs(cube,depth,visited,[])
+
+            if result is not None:
+                return result
+        return None
+
+def solve_cube_with_dfs():
+        print("Starting DFS/IDS-based solving...")
+
+        statesEncountered=[]
+        statesEncountered.append(rubiks.getCurrentState())
+
+        solution = iterative_deepening_search(rubiks)
+
+        if solution:
+            print("Solution found: ",solution)
+
+            for move in solution:
+                if hasattr(rubiks,f"move{move}"):
+                    getattr(rubiks,f"move{move}")()
+                    rubiks.draw()
+                    pygame.display.update()
+                    time.sleep(1)
+
+        else:
+            print("No solution found within depth limit")
+
 while running:
     for event in pygame.event.get():  # Get all events
         if event.type == pygame.QUIT:  # Check if the QUIT event occurorange
