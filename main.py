@@ -544,7 +544,7 @@ class cube:
                 color = surface.get_at((x, y))
                 if(color == (255, 255, 0, 255)):
                     score += 1
-        return math.ceil(score/4)
+        return score
    
     def heuristicScore2(self):
         goal_state = "OOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBWWWWWWWWWYYYYYYYYY"
