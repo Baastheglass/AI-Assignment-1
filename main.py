@@ -4,7 +4,7 @@ import time
 import random
 import math
 import heapq
-import deque
+from collections import deque
 
 #initializing pygame
 pygame.init()
@@ -508,42 +508,42 @@ class cube:
         for y in orangeY:
             for x in orangeX:
                 color = surface.get_at((x,y))
-                if(color == (255, 165, 0, 255)):
+                if(color == (0, 0, 255, 255)):
                     score += 1
         greenX = [213, 274, 335]
         greenY = [183, 244, 305]
         for y in greenY:
             for x in greenX:
                 color = surface.get_at((x, y))
-                if(color == (0, 255, 0, 255)):
+                if(color == (255, 0, 0, 255)):
                     score += 1
         redX = [396, 457, 518]
         redY = [183, 244, 305]
         for y in redY:
             for x in redX:
                 color = surface.get_at((x, y))
-                if(color == (255, 0, 0, 255)):
+                if(color == (0, 255, 0, 255)):
                     score += 1
         blueX = [579, 640, 701]
         blueY = [183, 244, 305]
         for y in blueY:
             for x in blueX:
                 color = surface.get_at((x, y))
-                if(color == (0, 0, 255, 255)):
+                if(color == (255, 165, 0, 255)):
                     score += 1
         whiteX = [213, 274, 335]
         whiteY = [122, 61, 0]
         for y in whiteY:
             for x in whiteX:
                 color = surface.get_at((x, y))
-                if(color == (255, 255, 255, 255)):
+                if(color == (255, 255, 0, 255)):
                     score += 1
         yellowX = [213, 274, 335]
         yellowY = [366, 427, 488]
         for y in yellowY:
             for x in yellowX:
                 color = surface.get_at((x, y))
-                if(color == (255, 255, 0, 255)):
+                if(color == (255, 255, 255, 255)):
                     score += 1
         return score
    
@@ -2546,17 +2546,17 @@ yellowCubes = []
 #creation of Cubes
 
 #orange
-m1 = minicube(30, 183, orange)
-m2 = minicube(91, 183, orange)
-m3 = minicube(152, 183, orange)
+m1 = minicube(30, 183, blue)
+m2 = minicube(91, 183, blue)
+m3 = minicube(152, 183, blue)
     
-m4 = minicube(30, 244, orange)
-m5 = minicube(91, 244, orange)
-m6 = minicube(152, 244, orange)
+m4 = minicube(30, 244, blue)
+m5 = minicube(91, 244, blue)
+m6 = minicube(152, 244, blue)
 
-m7 = minicube(30, 305, orange)
-m8 = minicube(91, 305, orange)
-m9 = minicube(152, 305, orange)
+m7 = minicube(30, 305, blue)
+m8 = minicube(91, 305, blue)
+m9 = minicube(152, 305, blue)
 
 orangeCubes.append(m1)
 orangeCubes.append(m2)
@@ -2572,17 +2572,17 @@ orangeFace = face(orangeCubes)
 faces.append(orangeFace)
 
 #green
-m10 = minicube(213, 183, green)
-m11 = minicube(274, 183, green)
-m12 = minicube(335, 183, green)
+m10 = minicube(213, 183, red)
+m11 = minicube(274, 183, red)
+m12 = minicube(335, 183, red)
 
-m13 = minicube(213, 244, green)
-m14 = minicube(274, 244, green)
-m15 = minicube(335, 244, green)
+m13 = minicube(213, 244, red)
+m14 = minicube(274, 244, red)
+m15 = minicube(335, 244, red)
 
-m16 = minicube(213, 305, green)
-m17 = minicube(274, 305, green)
-m18 = minicube(335, 305, green)
+m16 = minicube(213, 305, red)
+m17 = minicube(274, 305, red)
+m18 = minicube(335, 305, red)
 
 greenCubes.append(m10)
 greenCubes.append(m11)
@@ -2598,17 +2598,17 @@ greenFace = face(greenCubes)
 faces.append(greenFace)
 
 #red
-m19 = minicube(396, 183, red)
-m20 = minicube(457, 183, red)
-m21 = minicube(518, 183, red)
+m19 = minicube(396, 183, green)
+m20 = minicube(457, 183, green)
+m21 = minicube(518, 183, green)
 
-m22 = minicube(396, 244, red)
-m23 = minicube(457, 244, red)
-m24 = minicube(518, 244, red)
+m22 = minicube(396, 244, green)
+m23 = minicube(457, 244, green)
+m24 = minicube(518, 244, green)
 
-m25 = minicube(396, 305, red)
-m26 = minicube(457, 305, red)
-m27 = minicube(518, 305, red)
+m25 = minicube(396, 305, green)
+m26 = minicube(457, 305, green)
+m27 = minicube(518, 305, green)
 
 redCubes.append(m19)
 redCubes.append(m20)
@@ -2624,17 +2624,17 @@ redFace = face(redCubes)
 faces.append(redFace)
 
 #blue
-m25 = minicube(579, 183, blue)
-m26 = minicube(640, 183, blue)
-m27 = minicube(701, 183, blue)
+m25 = minicube(579, 183, orange)
+m26 = minicube(640, 183, orange)
+m27 = minicube(701, 183, orange)
 
-m28 = minicube(579, 244, blue)
-m29 = minicube(640, 244, blue)
-m30 = minicube(701, 244, blue)
+m28 = minicube(579, 244, orange)
+m29 = minicube(640, 244, orange)
+m30 = minicube(701, 244, orange)
 
-m31 = minicube(579, 305, blue)
-m32 = minicube(640, 305, blue)
-m33 = minicube(701, 305, blue)
+m31 = minicube(579, 305, orange)
+m32 = minicube(640, 305, orange)
+m33 = minicube(701, 305, orange)
 
 blueCubes.append(m25)
 blueCubes.append(m26)
@@ -2650,17 +2650,17 @@ blueFace = face(blueCubes)
 faces.append(blueFace)
 
 #white
-m31 = minicube(213, 122, white)
-m32 = minicube(274, 122, white)
-m33 = minicube(335, 122, white)
+m31 = minicube(213, 122, yellow)
+m32 = minicube(274, 122, yellow)
+m33 = minicube(335, 122, yellow)
 
-m34 = minicube(213, 61, white)
-m35 = minicube(274, 61, white)
-m36 = minicube(335, 61, white)
+m34 = minicube(213, 61, yellow)
+m35 = minicube(274, 61, yellow)
+m36 = minicube(335, 61, yellow)
 
-m37 = minicube(213, 0, white)
-m38 = minicube(274, 0, white)
-m39 = minicube(335, 0, white)
+m37 = minicube(213, 0, yellow)
+m38 = minicube(274, 0, yellow)
+m39 = minicube(335, 0, yellow)
 
 whiteCubes.append(m31)
 whiteCubes.append(m32)
@@ -2676,17 +2676,17 @@ whiteFace = face(whiteCubes)
 faces.append(whiteFace)
 
 #yellow
-m40 = minicube(213, 366, yellow)
-m41 = minicube(274, 366, yellow)
-m42 = minicube(335, 366, yellow)
+m40 = minicube(213, 366, white)
+m41 = minicube(274, 366, white)
+m42 = minicube(335, 366, white)
 
-m43 = minicube(213, 427, yellow)
-m44 = minicube(274, 427, yellow)
-m45 = minicube(335, 427, yellow)
+m43 = minicube(213, 427, white)
+m44 = minicube(274, 427, white)
+m45 = minicube(335, 427, white)
 
-m46 = minicube(213, 488, yellow)
-m47 = minicube(274, 488, yellow)
-m48 = minicube(335, 488, yellow)
+m46 = minicube(213, 488, white)
+m47 = minicube(274, 488, white)
+m48 = minicube(335, 488, white)
 
 yellowCubes.append(m40)
 yellowCubes.append(m41)
@@ -2706,6 +2706,7 @@ running = True
 rubiks.scramble()
 #rubiks.heuristicScore()
 #rubiks.draw()
+
 def bfs(cube):
     queue = deque() 
     visited = set()  
@@ -2834,6 +2835,6 @@ while running:
     rubiks.draw()
     pygame.display.update()
     print(rubiks.a_starCube())
-    break
+    #break
 
 #OOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBWWWWWWWWWYYYYYYYYY
