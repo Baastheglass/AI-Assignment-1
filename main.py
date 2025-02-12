@@ -139,40 +139,40 @@ class cube:
                 break
                 
     def moveTC(self):
-        orange = self.faces[0].cubes[0:3]
-        green = self.faces[1].cubes[0:3]
-        red = self.faces[2].cubes[0:3]
-        blue = self.faces[3].cubes[0:3]
+        orange = self.faces[3].cubes[0:3]
+        green = self.faces[2].cubes[0:3]
+        red = self.faces[1].cubes[0:3]
+        blue = self.faces[0].cubes[0:3]
         for i in range(3):
-            self.faces[2].cubes[i].x, green[i].x = green[i].x, self.faces[2].cubes[i].x
-            self.faces[2].cubes[i].y, green[i].y = green[i].y, self.faces[2].cubes[i].y
+            self.faces[1].cubes[i].x, green[i].x = green[i].x, self.faces[1].cubes[i].x
+            self.faces[1].cubes[i].y, green[i].y = green[i].y, self.faces[1].cubes[i].y
         for i in range(3):
-            self.faces[3].cubes[i].x, red[i].x = red[i].x, self.faces[3].cubes[i].x
-            self.faces[3].cubes[i].y, red[i].y = red[i].y, self.faces[3].cubes[i].y
+            self.faces[0].cubes[i].x, red[i].x = red[i].x, self.faces[0].cubes[i].x
+            self.faces[0].cubes[i].y, red[i].y = red[i].y, self.faces[0].cubes[i].y
         for i in range(3):
-            self.faces[0].cubes[i].x, blue[i].x = blue[i].x, self.faces[0].cubes[i].x
-            self.faces[0].cubes[i].y, blue[i].y = blue[i].y, self.faces[0].cubes[i].y
+            self.faces[3].cubes[i].x, blue[i].x = blue[i].x, self.faces[3].cubes[i].x
+            self.faces[3].cubes[i].y, blue[i].y = blue[i].y, self.faces[3].cubes[i].y
         
     def moveTA(self):    
-        orange = self.faces[0].cubes[0:3]
-        green = self.faces[1].cubes[0:3]
-        red = self.faces[2].cubes[0:3]
-        blue = self.faces[3].cubes[0:3]
+        orange = self.faces[3].cubes[0:3]
+        green = self.faces[2].cubes[0:3]
+        red = self.faces[1].cubes[0:3]
+        blue = self.faces[0].cubes[0:3]
         
         for i in range(3):
-            self.faces[2].cubes[i].x, blue[i].x = blue[i].x, self.faces[2].cubes[i].x
-            self.faces[2].cubes[i].y, blue[i].y = blue[i].y, self.faces[2].cubes[i].y
+            self.faces[1].cubes[i].x, blue[i].x = blue[i].x, self.faces[1].cubes[i].x
+            self.faces[1].cubes[i].y, blue[i].y = blue[i].y, self.faces[1].cubes[i].y
         for i in range(3):
-            self.faces[3].cubes[i].x, orange[i].x = orange[i].x, self.faces[3].cubes[i].x
-            self.faces[3].cubes[i].y, orange[i].y = orange[i].y, self.faces[3].cubes[i].y
+            self.faces[0].cubes[i].x, orange[i].x = orange[i].x, self.faces[0].cubes[i].x
+            self.faces[0].cubes[i].y, orange[i].y = orange[i].y, self.faces[0].cubes[i].y
         for i in range(3):
-            self.faces[0].cubes[i].x, green[i].x = green[i].x, self.faces[0].cubes[i].x
-            self.faces[0].cubes[i].y, green[i].y = green[i].y, self.faces[0].cubes[i].y
+            self.faces[3].cubes[i].x, green[i].x = green[i].x, self.faces[3].cubes[i].x
+            self.faces[3].cubes[i].y, green[i].y = green[i].y, self.faces[3].cubes[i].y
         for i in range(3):
-            self.faces[0].cubes[i].x, self.faces[2].cubes[i].x = self.faces[2].cubes[i].x, self.faces[0].cubes[i].x
-            self.faces[0].cubes[i].y, self.faces[2].cubes[i].y = self.faces[2].cubes[i].y, self.faces[0].cubes[i].y
             self.faces[3].cubes[i].x, self.faces[1].cubes[i].x = self.faces[1].cubes[i].x, self.faces[3].cubes[i].x
             self.faces[3].cubes[i].y, self.faces[1].cubes[i].y = self.faces[1].cubes[i].y, self.faces[3].cubes[i].y
+            self.faces[0].cubes[i].x, self.faces[2].cubes[i].x = self.faces[2].cubes[i].x, self.faces[0].cubes[i].x
+            self.faces[0].cubes[i].y, self.faces[2].cubes[i].y = self.faces[2].cubes[i].y, self.faces[0].cubes[i].y
 
     def moveFC(self):
         yellow = self.faces[5].cubes[6::]
@@ -2828,7 +2828,7 @@ def solve_cube_with_dfs():
         else:
             print("No solution found within depth limit")
 
-rubiks.moveAA()
+rubiks.moveTA()
 while running:
     for event in pygame.event.get():  # Get all events
         if event.type == pygame.QUIT:  # Check if the QUIT event occurorange
