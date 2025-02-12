@@ -139,19 +139,27 @@ class cube:
                 break
                 
     def moveTC(self):
-        orange = self.faces[3].cubes[0:3]
-        green = self.faces[2].cubes[0:3]
-        red = self.faces[1].cubes[0:3]
-        blue = self.faces[0].cubes[0:3]
         for i in range(3):
-            self.faces[1].cubes[i].x, green[i].x = green[i].x, self.faces[1].cubes[i].x
-            self.faces[1].cubes[i].y, green[i].y = green[i].y, self.faces[1].cubes[i].y
+            self.faces[0].cubes[i].color = (255, 0, 0)
         for i in range(3):
-            self.faces[0].cubes[i].x, red[i].x = red[i].x, self.faces[0].cubes[i].x
-            self.faces[0].cubes[i].y, red[i].y = red[i].y, self.faces[0].cubes[i].y
+            self.faces[1].cubes[i].color = (0, 255, 0)
         for i in range(3):
-            self.faces[3].cubes[i].x, blue[i].x = blue[i].x, self.faces[3].cubes[i].x
-            self.faces[3].cubes[i].y, blue[i].y = blue[i].y, self.faces[3].cubes[i].y
+            self.faces[2].cubes[i].color = (255, 165, 0)
+        for i in range(3):
+            self.faces[3].cubes[i].color = (0, 0, 255)
+        # orange = self.faces[3].cubes[0:3]
+        # green = self.faces[2].cubes[0:3]
+        # red = self.faces[1].cubes[0:3]
+        # blue = self.faces[0].cubes[0:3]
+        # for i in range(3):
+        #     self.faces[1].cubes[i].x, green[i].x = green[i].x, self.faces[1].cubes[i].x
+        #     self.faces[1].cubes[i].y, green[i].y = green[i].y, self.faces[1].cubes[i].y
+        # for i in range(3):
+        #     self.faces[0].cubes[i].x, red[i].x = red[i].x, self.faces[0].cubes[i].x
+        #     self.faces[0].cubes[i].y, red[i].y = red[i].y, self.faces[0].cubes[i].y
+        # for i in range(3):
+        #     self.faces[3].cubes[i].x, blue[i].x = blue[i].x, self.faces[3].cubes[i].x
+        #     self.faces[3].cubes[i].y, blue[i].y = blue[i].y, self.faces[3].cubes[i].y
         
     def moveTA(self):  
         for i in range(3):
@@ -2846,7 +2854,7 @@ def solve_cube_with_dfs():
         else:
             print("No solution found within depth limit")
 
-rubiks.moveTA()
+rubiks.moveTC()
 while running:
     for event in pygame.event.get():  # Get all events
         if event.type == pygame.QUIT:  # Check if the QUIT event occurorange
