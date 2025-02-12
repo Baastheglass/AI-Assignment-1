@@ -264,25 +264,25 @@ class cube:
             self.faces[4].cubes[i].y, green[i].y = green[i].y, self.faces[4].cubes[i].y
     
     def moveAA(self):
-        yellow = self.faces[5].cubes[0:3]
-        green = self.faces[1].cubes[0:3]
-        white = self.faces[4].cubes[0:3]
-        blue = self.faces[3].cubes[0:3]
+        yellow = self.faces[4].cubes[0:3]
+        green = self.faces[2].cubes[0:3]
+        white = self.faces[5].cubes[0:3]
+        blue = self.faces[0].cubes[0:3]
         
         for i in range(3):
-            self.faces[5].cubes[i].x, blue[i].x = blue[i].x, self.faces[5].cubes[i].x
-            self.faces[5].cubes[i].y, blue[i].y = blue[i].y, self.faces[5].cubes[i].y
+            self.faces[4].cubes[i].x, blue[i].x = blue[i].x, self.faces[4].cubes[i].x
+            self.faces[4].cubes[i].y, blue[i].y = blue[i].y, self.faces[4].cubes[i].y
         for i in range(3):
-            self.faces[1].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[1].cubes[i].x
-            self.faces[1].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[1].cubes[i].y
+            self.faces[2].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[2].cubes[i].x
+            self.faces[2].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[2].cubes[i].y
         for i in range(3):
-            self.faces[4].cubes[i].x, green[i].x = green[i].x, self.faces[4].cubes[i].x
-            self.faces[4].cubes[i].y, green[i].y = green[i].y, self.faces[4].cubes[i].y
+            self.faces[5].cubes[i].x, green[i].x = green[i].x, self.faces[5].cubes[i].x
+            self.faces[5].cubes[i].y, green[i].y = green[i].y, self.faces[5].cubes[i].y
         for i in range(3):
             self.faces[4].cubes[i].x, self.faces[5].cubes[i].x = self.faces[5].cubes[i].x, self.faces[4].cubes[i].x
             self.faces[4].cubes[i].y, self.faces[5].cubes[i].y = self.faces[5].cubes[i].y, self.faces[4].cubes[i].y
-            self.faces[3].cubes[i].x, self.faces[1].cubes[i].x = self.faces[1].cubes[i].x, self.faces[3].cubes[i].x
-            self.faces[3].cubes[i].y, self.faces[1].cubes[i].y = self.faces[1].cubes[i].y, self.faces[3].cubes[i].y
+            self.faces[0].cubes[i].x, self.faces[2].cubes[i].x = self.faces[2].cubes[i].x, self.faces[0].cubes[i].x
+            self.faces[0].cubes[i].y, self.faces[2].cubes[i].y = self.faces[2].cubes[i].y, self.faces[0].cubes[i].y
     
     def moveRA(self):
         red = [self.faces[2].cubes[2], self.faces[2].cubes[5], self.faces[2].cubes[8]]
@@ -2703,7 +2703,7 @@ faces.append(yellowFace)
 done = False
 running = True
 # Drawing Rectangle
-rubiks.scramble()
+#rubiks.scramble()
 #rubiks.heuristicScore()
 #rubiks.draw()
 
@@ -2828,13 +2828,14 @@ def solve_cube_with_dfs():
         else:
             print("No solution found within depth limit")
 
+rubiks.moveAA()
 while running:
     for event in pygame.event.get():  # Get all events
         if event.type == pygame.QUIT:  # Check if the QUIT event occurorange
             running = False
     rubiks.draw()
     pygame.display.update()
-    print(rubiks.a_starCube())
+    #print(rubiks.a_starCube())
     #break
 
 #OOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBWWWWWWWWWYYYYYYYYY
