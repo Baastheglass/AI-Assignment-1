@@ -273,25 +273,35 @@ class cube:
         #     self.faces[0].cubes[6 + i].y, blue[i].y = blue[i].y, self.faces[0].cubes[6 + i].y
     
     def moveBA(self):    
-        orange = self.faces[0].cubes[6::]
-        green = self.faces[1].cubes[6::]
-        red = self.faces[2].cubes[6::]
-        blue = self.faces[3].cubes[6::]
+        rightIndices = [2, 5, 8]
+        leftIndices = [0, 3, 6]
+        for i in range(3):
+            self.faces[5].cubes[6 + i].color = (0 ,255, 0)
+        for i in range(3):
+            self.faces[4].cubes[6 + i].color = (0, 0, 255)
+        for i in leftIndices:
+            self.faces[0].cubes[i].color = (255, 255, 255)
+        for i in rightIndices:
+            self.faces[2].cubes[i].color = (255, 255, 0)
+        # orange = self.faces[0].cubes[6::]
+        # green = self.faces[1].cubes[6::]
+        # red = self.faces[2].cubes[6::]
+        # blue = self.faces[3].cubes[6::]
         
-        for i in range(3):
-            self.faces[2].cubes[6 + i].x, blue[i].x = blue[i].x, self.faces[2].cubes[6 + i].x
-            self.faces[2].cubes[6 + i].y, blue[i].y = blue[i].y, self.faces[2].cubes[6 + i].y
-        for i in range(3):
-            self.faces[3].cubes[6 + i].x, orange[i].x = orange[i].x, self.faces[3].cubes[6 + i].x
-            self.faces[3].cubes[6 + i].y, orange[i].y = orange[i].y, self.faces[3].cubes[6 + i].y
-        for i in range(3):
-            self.faces[0].cubes[6 + i].x, green[i].x = green[i].x, self.faces[0].cubes[6 + i].x
-            self.faces[0].cubes[6 + i].y, green[i].y = green[i].y, self.faces[0].cubes[6 + i].y
-        for i in range(3):
-            self.faces[0].cubes[6 + i].x, self.faces[2].cubes[6 + i].x = self.faces[2].cubes[6 + i].x, self.faces[0].cubes[6 + i].x
-            self.faces[0].cubes[6 + i].y, self.faces[2].cubes[6 + i].y = self.faces[2].cubes[6 + i].y, self.faces[0].cubes[6 + i].y
-            self.faces[3].cubes[6 + i].x, self.faces[1].cubes[6 + i].x = self.faces[1].cubes[6 + i].x, self.faces[3].cubes[6 + i].x
-            self.faces[3].cubes[6 + i].y, self.faces[1].cubes[6 + i].y = self.faces[1].cubes[6 + i].y, self.faces[3].cubes[6 + i].y
+        # for i in range(3):
+        #     self.faces[2].cubes[6 + i].x, blue[i].x = blue[i].x, self.faces[2].cubes[6 + i].x
+        #     self.faces[2].cubes[6 + i].y, blue[i].y = blue[i].y, self.faces[2].cubes[6 + i].y
+        # for i in range(3):
+        #     self.faces[3].cubes[6 + i].x, orange[i].x = orange[i].x, self.faces[3].cubes[6 + i].x
+        #     self.faces[3].cubes[6 + i].y, orange[i].y = orange[i].y, self.faces[3].cubes[6 + i].y
+        # for i in range(3):
+        #     self.faces[0].cubes[6 + i].x, green[i].x = green[i].x, self.faces[0].cubes[6 + i].x
+        #     self.faces[0].cubes[6 + i].y, green[i].y = green[i].y, self.faces[0].cubes[6 + i].y
+        # for i in range(3):
+        #     self.faces[0].cubes[6 + i].x, self.faces[2].cubes[6 + i].x = self.faces[2].cubes[6 + i].x, self.faces[0].cubes[6 + i].x
+        #     self.faces[0].cubes[6 + i].y, self.faces[2].cubes[6 + i].y = self.faces[2].cubes[6 + i].y, self.faces[0].cubes[6 + i].y
+        #     self.faces[3].cubes[6 + i].x, self.faces[1].cubes[6 + i].x = self.faces[1].cubes[6 + i].x, self.faces[3].cubes[6 + i].x
+        #     self.faces[3].cubes[6 + i].y, self.faces[1].cubes[6 + i].y = self.faces[1].cubes[6 + i].y, self.faces[3].cubes[6 + i].y
    
     def moveAC(self):
         yellow = self.faces[5].cubes[0:3]
@@ -2874,7 +2884,7 @@ def solve_cube_with_dfs():
         else:
             print("No solution found within depth limit")
 
-rubiks.moveBC()
+rubiks.moveBA()
 while running:
     for event in pygame.event.get():  # Get all events
         if event.type == pygame.QUIT:  # Check if the QUIT event occurorange
