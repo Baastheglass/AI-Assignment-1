@@ -248,16 +248,7 @@ class cube:
         #     self.faces[3].cubes[6 + i].y, self.faces[1].cubes[6 + i].y = self.faces[1].cubes[6 + i].y, self.faces[3].cubes[6 + i].y
     
     def moveBC(self):
-        rightIndices = [2, 5, 8]
-        leftIndices = [0, 3, 6]
-        for i in range(3):
-            self.faces[5].cubes[6 + i].color = (0, 0, 255)
-        for i in leftIndices:
-            self.faces[0].cubes[i].color = (255, 255, 0)
-        for i in range(3):
-            self.faces[4].cubes[6 + i].color = (0, 255, 0)
-        for i in rightIndices:
-            self.faces[2].cubes[i].color = (255, 255, 255)
+        pass
         # orange = self.faces[0].cubes[6::]
         # green = self.faces[1].cubes[6::]
         # red = self.faces[2].cubes[6::]
@@ -273,16 +264,7 @@ class cube:
         #     self.faces[0].cubes[6 + i].y, blue[i].y = blue[i].y, self.faces[0].cubes[6 + i].y
     
     def moveBA(self):    
-        rightIndices = [2, 5, 8]
-        leftIndices = [0, 3, 6]
-        for i in range(3):
-            self.faces[5].cubes[6 + i].color = (0 ,255, 0)
-        for i in range(3):
-            self.faces[4].cubes[6 + i].color = (0, 0, 255)
-        for i in leftIndices:
-            self.faces[0].cubes[i].color = (255, 255, 255)
-        for i in rightIndices:
-            self.faces[2].cubes[i].color = (255, 255, 0)
+        pass
         # orange = self.faces[0].cubes[6::]
         # green = self.faces[1].cubes[6::]
         # red = self.faces[2].cubes[6::]
@@ -304,41 +286,63 @@ class cube:
         #     self.faces[3].cubes[6 + i].y, self.faces[1].cubes[6 + i].y = self.faces[1].cubes[6 + i].y, self.faces[3].cubes[6 + i].y
    
     def moveAC(self):
-        yellow = self.faces[5].cubes[0:3]
-        green = self.faces[1].cubes[0:3]
-        white = self.faces[4].cubes[0:3]
-        blue = self.faces[3].cubes[0:3]
+        rightIndices = [2, 5, 8]
+        leftIndices = [0, 3, 6]
+        for i in range(3):
+            self.faces[5].cubes[6 + i].color = (0, 0, 255)
+        for i in leftIndices:
+            self.faces[0].cubes[i].color = (255, 255, 0)
+        for i in range(3):
+            self.faces[4].cubes[6 + i].color = (0, 255, 0)
+        for i in rightIndices:
+            self.faces[2].cubes[i].color = (255, 255, 255)
+            
+        # yellow = self.faces[5].cubes[0:3]
+        # green = self.faces[1].cubes[0:3]
+        # white = self.faces[4].cubes[0:3]
+        # blue = self.faces[3].cubes[0:3]
         
-        for i in range(3):
-            self.faces[5].cubes[i].x, blue[i].x = blue[i].x, self.faces[5].cubes[i].x
-            self.faces[5].cubes[i].y, blue[i].y = blue[i].y, self.faces[5].cubes[i].y
-        for i in range(3):
-            self.faces[1].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[1].cubes[i].x
-            self.faces[1].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[1].cubes[i].y
-        for i in range(3):
-            self.faces[4].cubes[i].x, green[i].x = green[i].x, self.faces[4].cubes[i].x
-            self.faces[4].cubes[i].y, green[i].y = green[i].y, self.faces[4].cubes[i].y
+        # for i in range(3):
+        #     self.faces[5].cubes[i].x, blue[i].x = blue[i].x, self.faces[5].cubes[i].x
+        #     self.faces[5].cubes[i].y, blue[i].y = blue[i].y, self.faces[5].cubes[i].y
+        # for i in range(3):
+        #     self.faces[1].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[1].cubes[i].x
+        #     self.faces[1].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[1].cubes[i].y
+        # for i in range(3):
+        #     self.faces[4].cubes[i].x, green[i].x = green[i].x, self.faces[4].cubes[i].x
+        #     self.faces[4].cubes[i].y, green[i].y = green[i].y, self.faces[4].cubes[i].y
     
     def moveAA(self):
-        yellow = self.faces[4].cubes[0:3]
-        green = self.faces[2].cubes[0:3]
-        white = self.faces[5].cubes[0:3]
-        blue = self.faces[0].cubes[0:3]
+        rightIndices = [2, 5, 8]
+        leftIndices = [0, 3, 6]
+        for i in range(3):
+            self.faces[5].cubes[6 + i].color = (0 ,255, 0)
+        for i in range(3):
+            self.faces[4].cubes[6 + i].color = (0, 0, 255)
+        for i in leftIndices:
+            self.faces[0].cubes[i].color = (255, 255, 255)
+        for i in rightIndices:
+            self.faces[2].cubes[i].color = (255, 255, 0)
+            
+        # yellow = self.faces[4].cubes[0:3]
+        # green = self.faces[2].cubes[0:3]
+        # white = self.faces[5].cubes[0:3]
+        # blue = self.faces[0].cubes[0:3]
         
-        for i in range(3):
-            self.faces[4].cubes[i].x, blue[i].x = blue[i].x, self.faces[4].cubes[i].x
-            self.faces[4].cubes[i].y, blue[i].y = blue[i].y, self.faces[4].cubes[i].y
-        for i in range(3):
-            self.faces[2].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[2].cubes[i].x
-            self.faces[2].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[2].cubes[i].y
-        for i in range(3):
-            self.faces[5].cubes[i].x, green[i].x = green[i].x, self.faces[5].cubes[i].x
-            self.faces[5].cubes[i].y, green[i].y = green[i].y, self.faces[5].cubes[i].y
-        for i in range(3):
-            self.faces[4].cubes[i].x, self.faces[5].cubes[i].x = self.faces[5].cubes[i].x, self.faces[4].cubes[i].x
-            self.faces[4].cubes[i].y, self.faces[5].cubes[i].y = self.faces[5].cubes[i].y, self.faces[4].cubes[i].y
-            self.faces[0].cubes[i].x, self.faces[2].cubes[i].x = self.faces[2].cubes[i].x, self.faces[0].cubes[i].x
-            self.faces[0].cubes[i].y, self.faces[2].cubes[i].y = self.faces[2].cubes[i].y, self.faces[0].cubes[i].y
+        # for i in range(3):
+        #     self.faces[4].cubes[i].x, blue[i].x = blue[i].x, self.faces[4].cubes[i].x
+        #     self.faces[4].cubes[i].y, blue[i].y = blue[i].y, self.faces[4].cubes[i].y
+        # for i in range(3):
+        #     self.faces[2].cubes[i].x, yellow[i].x = yellow[i].x, self.faces[2].cubes[i].x
+        #     self.faces[2].cubes[i].y, yellow[i].y = yellow[i].y, self.faces[2].cubes[i].y
+        # for i in range(3):
+        #     self.faces[5].cubes[i].x, green[i].x = green[i].x, self.faces[5].cubes[i].x
+        #     self.faces[5].cubes[i].y, green[i].y = green[i].y, self.faces[5].cubes[i].y
+        # for i in range(3):
+        #     self.faces[4].cubes[i].x, self.faces[5].cubes[i].x = self.faces[5].cubes[i].x, self.faces[4].cubes[i].x
+        #     self.faces[4].cubes[i].y, self.faces[5].cubes[i].y = self.faces[5].cubes[i].y, self.faces[4].cubes[i].y
+        #     self.faces[0].cubes[i].x, self.faces[2].cubes[i].x = self.faces[2].cubes[i].x, self.faces[0].cubes[i].x
+        #     self.faces[0].cubes[i].y, self.faces[2].cubes[i].y = self.faces[2].cubes[i].y, self.faces[0].cubes[i].y
     
     def moveRA(self):
         red = [self.faces[2].cubes[2], self.faces[2].cubes[5], self.faces[2].cubes[8]]
